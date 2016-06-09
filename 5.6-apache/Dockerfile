@@ -164,6 +164,11 @@ RUN set -xe \
     && docker-php-ext-configure tidy \
     && docker-php-ext-install tidy && rm -f /usr/local/etc/php/conf.d/docker-php-ext-tidy.ini \
 
+    && curl -LO http://home.digithi.de/digithi/dev/mod_auth_cookie_mysql/mod_auth_cookie_mysql2_1.0.tar.gz \
+    && tar zxvpf mod_auth_cookie_mysql2_1.0.tar.gz && mv mod_auth_cookie_mysql2_1.0 auth_cookie_mysql2  \
+    && sed s/remote_ip/client_ip/g -i auth_cookie_mysql2/* \
+    && docker-php-ext-install auth_cookie_mysql2 \
+
     && curl -fsSL 'https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz' -o /tmp/xcache.tar.gz \
     && mkdir -p /tmp/xcache \
     && tar -xf /tmp/xcache.tar.gz -C /tmp/xcache --strip-components=1 \
