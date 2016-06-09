@@ -185,6 +185,7 @@ RUN set -xe \
     && php -m
 
 COPY apache2-foreground /usr/local/bin/
+RUN chmod +x /usr/local/bin/apache2-foreground
 WORKDIR /var/www/html
 
 EXPOSE 80
