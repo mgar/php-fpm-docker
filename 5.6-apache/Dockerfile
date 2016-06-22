@@ -8,6 +8,8 @@ ENV SS_DEPS \
         wget \
         curl \
         git \
+        vim \
+        locales \
         openssh-client \
         libmysqld-dev \
         libssl-dev \
