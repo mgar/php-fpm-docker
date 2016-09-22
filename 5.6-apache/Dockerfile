@@ -20,7 +20,9 @@ ENV SS_DEPS \
         libpng12-0 \
         libxslt1.1 \
         libpcre3 \
-        librecode0
+        librecode0 \
+        libfreetype6 \
+        libfreetype6-dev
 
 # persistent / runtime deps
 ENV PHPIZE_DEPS \
@@ -129,7 +131,7 @@ RUN set -xe \
         --with-bz2 \
     	--with-curl \
         --with-gettext \
-        --with-gd \
+        --with-gd --with-freetype-dir=/usr/lib/x86_64-linux-gnu \
         --with-gmp \
         --with-jpeg-dir \
     	--with-mcrypt \
